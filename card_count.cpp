@@ -3,6 +3,7 @@
 #include <math.h>
 #include <vector>
 #include <string.h>
+#include <random>
 using namespace std;
 
 vector<string> cards;
@@ -24,12 +25,34 @@ int main(void)
         cout << endl;
     }
     */
-
     return 0;
 }
 
-int deal(deck)
+int deal(vector<vector<string>> deck)
 { 
+    int selectedCard = rand() % 13 + 1;
+    int selectedSuit = rand() % 4 + 1;
+    cardPair dealing;
+
+    for(int i = 0; i < selectedSuit; i++) {
+        for (int j = 0; j <selectedCard; j++) {
+            dealing.cardOne = j;
+            selectedCard = rand() % 13 + 1;
+            selectedSuit = rand() % 4 + 1;
+        
+        }
+    }
+    
+    for(int i = 0; i < selectedSuit; i++) {
+        for (int j = 0; j <selectedCard; j++) {
+        dealing.cardTwo = j;
+        selectedCard = rand() % 13 + 1;
+        selectedSuit = rand() % 4 + 1;
+    
+        }
+    }
+    
+
 
     return;
 }
@@ -39,4 +62,3 @@ int count(int card)
 
     return card;
 }
-
