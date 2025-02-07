@@ -15,13 +15,6 @@ int main(void)
     cards = {"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
     deck = {cards, cards, cards, cards};  
 
-    /*for (const auto& row : deck) {
-        for (const auto& card : row) {
-            cout << card << " ";
-        }
-        cout << endl;
-    }
-    */
     return 0;
 }
 
@@ -31,7 +24,7 @@ vector<string> deal(vector<vector<string>> deck)
     int selectedSuit = rand() % 4 + 1;
     vector<string> dealing;
 
-    for(const auto& suit : deck) {
+    for(int suit = 0; suit <= 4; suit++) {
         if (suit != selectedSuit) {
             return;
         }
