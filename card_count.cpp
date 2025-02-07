@@ -8,10 +8,7 @@ using namespace std;
 
 vector<string> cards;
 vector<vector<string>> deck;
-struct cardPair {
-    int cardOne;
-    int cardTwo;
-};
+
 
 int main(void)
 {
@@ -28,33 +25,28 @@ int main(void)
     return 0;
 }
 
-int deal(vector<vector<string>> deck)
+vector<string> deal(vector<vector<string>> deck)
 { 
     int selectedCard = rand() % 13 + 1;
     int selectedSuit = rand() % 4 + 1;
-    cardPair dealing;
+    vector<string> dealing;
 
-    for(int i = 0; i < selectedSuit; i++) {
-        for (int j = 0; j <selectedCard; j++) {
-            dealing.cardOne = j;
-            selectedCard = rand() % 13 + 1;
-            selectedSuit = rand() % 4 + 1;
-        
+    for(const auto& suit : deck) {
+        if (suit != selectedSuit) {
+            return;
         }
+        for (const auto& card : cards) {
+            if (stoi(card) != selectedCard)
+                {
+                    return;
+                }
+            dealing.push_back(card);
+        } 
     }
-    
-    for(int i = 0; i < selectedSuit; i++) {
-        for (int j = 0; j <selectedCard; j++) {
-        dealing.cardTwo = j;
-        selectedCard = rand() % 13 + 1;
-        selectedSuit = rand() % 4 + 1;
-    
-        }
-    }
-    
+    selectedCard = rand() % 13 + 1;
+    selectedSuit = rand() % 4 + 1;
 
-
-    return;
+    return dealing;
 }
 
 int count(int card)
